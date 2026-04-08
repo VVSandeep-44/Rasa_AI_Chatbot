@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MR Clinical AI Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-photo"></div>
+  <div class="bg-chroma"></div>
+  <canvas id="particles"></canvas>
+  <div class="bg-grid"></div>
+  <div class="bg-vignette"></div>
+
+  <header class="navbar">
+    <div class="nav-brand">
+      <div class="brand-mark">🧬</div>
+      <div class="brand-copy">
+        <p class="brand-title">MR Clinical AI Assistant</p>
+        <p class="brand-subtitle">Guided Simulation Interface</p>
+      </div>
+    </div>
+    <nav class="nav-center" aria-label="Primary sections">
+      <a class="nav-item active" href="#hero">Overview</a>
+      <span class="nav-item" aria-disabled="true">Anatomy</span>
+      <span class="nav-item" aria-disabled="true">Procedures</span>
+      <span class="nav-item" aria-disabled="true">Simulation</span>
+    </nav>
+    <div class="status-pill" id="statusPill">
+      <span class="pulse-dot"></span>
+      <span id="statusText">Ready</span>
+    </div>
+  </header>
+
+  <main class="hero" id="hero">
+    <p class="hero-tag">Virtual Clinical Learning</p>
+    <h1 class="hero-title">Interactive <em>Anatomy</em> Guidance</h1>
+    <p class="hero-desc">
+      Ask anatomy and procedure questions with text or voice. The assistant can respond from your local RASA server,
+      and it keeps your chat session safely in this browser.
+    </p>
+
+    <div class="hero-kpis">
+      <div class="kpi">
+        <span class="kpi-value">Live</span>
+        <span class="kpi-label">Chat + Voice</span>
+      </div>
+      <div class="kpi-divider"></div>
+      <div class="kpi">
+        <span class="kpi-value">Saved</span>
+        <span class="kpi-label">Session History</span>
+      </div>
+      <div class="kpi-divider"></div>
+      <div class="kpi">
+        <span class="kpi-value">Smart</span>
+        <span class="kpi-label">Fallback Replies</span>
+      </div>
+    </div>
+  </main>
+
+  <aside class="insight-rail" aria-label="Live system insights">
+    <article class="insight-card">
+      <p class="insight-key">System Readiness</p>
+      <p class="insight-value">94%</p>
+      <p class="insight-text">Simulation context and chat services are calibrated.</p>
+    </article>
+    <article class="insight-card">
+      <p class="insight-key">Learning Tracks</p>
+      <p class="insight-value">28</p>
+      <p class="insight-text">Guided anatomy and pharma-linked prompt flows available.</p>
+    </article>
+    <article class="insight-card">
+      <p class="insight-key">Response Profile</p>
+      <p class="insight-value">Fast</p>
+      <p class="insight-text">Uses RASA replies first, then local fallback when needed.</p>
+    </article>
+  </aside>
+
+  <section class="typing-strip" aria-live="polite">
+    <p class="strip-label">Context Stream</p>
+    <p class="strip-text" id="typingText"></p>
+  </section>
+
+  <button class="chat-fab" id="chatFab" type="button" aria-label="Open chat">
+    <span class="fab-ring"></span>
+    <span class="fab-ring second"></span>
+    <span class="fab-icon">🤖</span>
+    <span class="fab-label">Ask AI</span>
+  </button>
+
+  <section class="chat-window" id="chatWindow" aria-label="Chat window" aria-hidden="true">
+    <div class="chat-header">
+      <div class="assistant-head">
+        <span class="assistant-avatar">🧠</span>
+        <div>
+          <p class="assistant-name">MR AI Assistant</p>
+          <p class="assistant-status" id="assistantStatus">online</p>
+        </div>
+      </div>
+      <div class="chat-actions">
+        <button type="button" class="icon-btn" id="clearBtn" title="Clear conversation">🗑</button>
+        <button type="button" class="icon-btn" id="closeBtn" title="Close chat">✕</button>
+      </div>
+    </div>
+
+    <div class="chat-body" id="chatBox"></div>
+
+    <div class="quick-prompts" id="quickPrompts">
+      <button type="button" class="quick-chip">Heart blood flow steps</button>
+      <button type="button" class="quick-chip">Cranial nerves summary</button>
+      <button type="button" class="quick-chip">Explain nephron function</button>
+      <button type="button" class="quick-chip">Drug absorption basics</button>
+    </div>
+
+    <form class="chat-input-row" id="chatForm">
+      <input id="userInput" class="chat-input" type="text" placeholder="Type your question..." autocomplete="off" />
+      <button id="micBtn" class="chat-btn" type="button" title="Use voice">🎙</button>
+      <button id="sendBtn" class="chat-btn send" type="submit" title="Send message">➤</button>
+    </form>
+    <p class="chat-hint">Enter to send · Shift + Enter newline · / to focus · Esc to close</p>
+  </section>
+
+  <script src="script .js"></script>
+</body>
+</html>
