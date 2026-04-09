@@ -23,7 +23,7 @@ let isRecording = false;
 	bindEvents();
 	hydrateHistory();
 	if (!chatBox.children.length) {
-		addMessage("bot", "Welcome. Ask me about anatomy, physiology, or procedures.");
+		addMessage("bot", "Konnichiwa! I'm Zeno-ai, your ultimate anime companion. Ask me anything about anime, manga, characters, and genres! 🎌");
 	}
 })();
 
@@ -109,7 +109,7 @@ async function sendMessage() {
 				addMessage("bot", fallbackReply(message));
 			}
 
-			setAssistantState("online");
+			setAssistantState("watching anime");
 			setStatus("Connected");
 		} else {
 			addMessage("bot", fallbackReply(message));
@@ -120,10 +120,10 @@ async function sendMessage() {
 		hideTyping();
 		addMessage(
 			"bot",
-			"RASA server not reachable right now. I switched to local fallback answers."
+			"RASA server not available right now. Switching to Zeno's local anime knowledge!"
 		);
 		addMessage("bot", fallbackReply(message));
-		setAssistantState("offline fallback");
+		setAssistantState("offline mode");
 		setStatus("Offline");
 	}
 }
@@ -268,8 +268,8 @@ function setupSpeechRecognition() {
 	recognition.onend = function onEnd() {
 		isRecording = false;
 		micBtn.classList.remove("active");
-		if (assistantStatus.textContent !== "offline fallback") {
-			setAssistantState("online");
+		if (assistantStatus.textContent !== "offline mode") {
+			setAssistantState("watching anime");
 		}
 	};
 }
@@ -285,31 +285,39 @@ function setAssistantState(text) {
 function fallbackReply(message) {
 	const prompt = message.toLowerCase();
 
-	if (prompt.includes("heart") || prompt.includes("cardio")) {
-		return "The heart has four chambers: right atrium, right ventricle, left atrium, and left ventricle. Blood flows RA -> RV -> lungs -> LA -> LV -> body.";
+	if (prompt.includes("shounen") || prompt.includes("action")) {
+		return "Shounen anime features young male protagonists and focuses on action, adventure, and battles. Popular series include One Piece, My Hero Academia, and Demon Slayer! 💪";
 	}
 
-	if (prompt.includes("lung") || prompt.includes("respir")) {
-		return "The respiratory system exchanges oxygen and carbon dioxide in alveoli. The diaphragm creates pressure changes that drive inhalation and exhalation.";
+	if (prompt.includes("shoujo") || prompt.includes("romance")) {
+		return "Shoujo anime targets young female audiences and often features romance, drama, and emotional storytelling. Classics include Fruit Basket and Sailor Moon! 💕";
 	}
 
-	if (prompt.includes("kidney") || prompt.includes("nephron")) {
-		return "Each nephron filters plasma at the glomerulus, then selectively reabsorbs and secretes solutes along the tubules to form urine.";
+	if (prompt.includes("isekai") || prompt.includes("another world")) {
+		return "Isekai anime sends characters to alternate or fantasy worlds. Popular examples: That Time I Got Reincarnated as a Spider, Re:ZERO, and Sword Art Online! 🌍";
 	}
 
-	if (prompt.includes("drug") || prompt.includes("absorption")) {
-		return "Drug absorption depends on route, pH, lipid solubility, blood flow, and formulation. Oral drugs often absorb mainly in the small intestine.";
+	if (prompt.includes("demon slayer") || prompt.includes("bleach") || prompt.includes("jujutsu")) {
+		return "These are incredible action-packed shounen series! Demon Slayer has stunning animation, Bleach has epic battles, and Jujutsu Kaisen combines both! ⚔️";
 	}
 
-	return "I can help with anatomy systems, physiology flow, procedure summaries, and pharma-linked concepts. Ask a specific body system to begin.";
+	if (prompt.includes("character") || prompt.includes("protagonist")) {
+		return "Tell me which anime you're interested in, and I can describe the main characters and their development for you!";
+	}
+
+	if (prompt.includes("season") || prompt.includes("episode")) {
+		return "Different anime have different numbers of seasons. Some like One Piece have 20+, while others are just 12-13 episodes. Which anime interest you? 📺";
+	}
+
+	return "I know about anime genres, popular series, characters, plots, and more! Ask me about shounen, shoujo, isekai, slice of life, or your favorite anime series! 🎌";
 }
 
 function initTypingStrip() {
 	const lines = [
-		"Adaptive anatomy explanations for students.",
-		"Voice + text workflow ready.",
-		"Local history persists this chat session.",
-		"RASA endpoint with intelligent fallback enabled.",
+		"Comprehensive anime database and character profiles.",
+		"Voice + text queries supported.",
+		"Your chat history stays private in browser.",
+		"Instant anime facts and recommendations enabled.",
 	];
 
 	let line = 0;
