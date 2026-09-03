@@ -44,7 +44,7 @@ C:\Users\dell\OneDrive\Desktop\internship
 
 ## Requirements
 
-- Python 3.9 or a compatible Python version supported by the installed Rasa release.
+- Python 3.9 (Rasa 3.6.21 does not support Python 3.11 or newer).
 - Rasa and Rasa SDK.
 - Python `requests` package.
 - A modern web browser. Speech recognition depends on browser support.
@@ -54,11 +54,11 @@ C:\Users\dell\OneDrive\Desktop\internship
 Open PowerShell and create or activate an environment for the Rasa project:
 
 ```powershell
-cd "C:\Users\dell\OneDrive\Desktop\internship"
-python -m venv .venv
+cd "D:\Python Internship\backend"
+py -3.9 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
-pip install rasa rasa-sdk requests
+python -m pip install --use-deprecated=legacy-resolver --only-binary=greenlet -r requirements.txt
 ```
 
 Train the assistant after changing NLU data, stories, rules, or the domain:
@@ -71,14 +71,14 @@ Run the two backend services in separate PowerShell windows:
 
 ```powershell
 # Window 1: custom actions
-cd "C:\Users\dell\OneDrive\Desktop\internship"
+cd "D:\Python Internship\backend"
 .\.venv\Scripts\Activate.ps1
 rasa run actions --port 5055
 ```
 
 ```powershell
 # Window 2: Rasa REST API
-cd "C:\Users\dell\OneDrive\Desktop\internship"
+cd "D:\Python Internship\backend"
 .\.venv\Scripts\Activate.ps1
 rasa run --enable-api --cors "*" --port 5005
 ```
@@ -140,7 +140,7 @@ Open [http://localhost:8080](http://localhost:8080) in a browser. Opening `index
 Run the Rasa story tests from the backend directory:
 
 ```powershell
-cd "C:\Users\dell\OneDrive\Desktop\internship"
+cd "D:\Python Internship\backend"
 .\.venv\Scripts\Activate.ps1
 rasa test
 ```

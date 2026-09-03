@@ -4,10 +4,5 @@ backend/.rasa/
 backend/models/
 __pycache__/
 *.pyc
-.envbackend/vnv/
-backend/.rasa/
-backend/models/
-__pycache__/
-*.pyc
 .env
-RAPIDAPI_KEY="113ae7b4dcmsh5ec1c37f7c00ba3p17483ejsn29206b4c850f"
+backend/.venv/
