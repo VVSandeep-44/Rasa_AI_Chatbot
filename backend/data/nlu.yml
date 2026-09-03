@@ -1,0 +1,137 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - konnichiwa
+    - good morning
+    - hey there
+    - sup
+    - what's up
+    - yo
+    - greetings
+    - nice to meet you
+    - let's chat
+    - talk to me
+    - hlo
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you
+    - mata ne
+    - cya
+    - farewell
+    - take care
+    - catch you later
+    - have a nice day
+    - see you around
+    - bye bye
+    - until next time
+- intent: ask_anime_genre
+  examples: |
+    - what is [shounen](genre) anime
+    - tell me about [shoujo](genre)
+    - what is [isekai](genre)
+    - explain slice of life anime
+    - what is psychological anime
+    - best action anime
+    - recommend a genre
+    - what genres exist
+    - tell me anime genres
+    - different types of anime
+    - what's the difference between shounen and shoujo
+    - what is anime
+    
+- intent: ask_character
+  examples: |
+    - who is the main character
+    - describe this character
+    - tell me about [Naruto](anime_name)
+    - who is [Luffy](character_name)
+    - character background
+    - protagonist details
+    - tell me about the characters
+    - who are the side characters
+    - character development
+    - character relationships
+
+- intent: ask_recommendation
+  examples: |
+    - recommend an anime
+    - what should i watch
+    - give me a suggestion
+    - best anime to watch
+    - what anime do you recommend
+    - recommend [Attack on Titan](anime_name)
+    - suggest [Jujutsu Kaisen](anime_name)
+    - i need an anime recommendation
+    - suggest something good
+    - top anime series
+    - most popular anime
+    - hidden gems anime
+
+- intent: ask_plot
+  examples: |
+    - what's the plot of [Demon Slayer](anime_name)
+    - tell me the story of [One Piece](anime_name)
+    - what happens in this anime
+    - plot summary
+    - story details
+    - what's it about
+    - give me a synopsis
+    - summarize the story
+    - plot overview
+    - main storyline
+
+- intent: ask_studio
+  examples: |
+    - who made this anime
+    - what studio produced it
+    - which studio made [Spy x Family](anime_name)
+    - was [Jujutsu Kaisen](anime_name) produced by [MAPPA](studio)
+    - animation studio
+    - which company made it
+    - studio details
+    - production company
+    - anime creator
+    - who produced this
+
+- intent: ask_manga_adaptation
+  examples: |
+    - is there a manga for [Naruto](anime_name)
+    - manga adaptation of [Attack on Titan](anime_name)
+    - based on manga
+    - read the manga
+    - manga vs anime
+    - manga differences
+    - original manga
+    - manga source material
+
+- intent: ask_question
+  examples: |
+    - can you answer a general question
+    - i have a question
+    - answer this question for me
+    - what is [python](question)
+    - what is [ai](question)
+    - what is [machine learning](question)
+    - what is [deep learning](question)
+    - what is [natural language processing](question)
+    - what is [computer vision](question)
+    - what is [reinforcement learning](question)
+    - what is [neural network](question)
+    - what is [large language model](question)
+    - explain [generative ai](question)
+    - how does [ai](question) work
+    - tell me about [python](question)
+    - please explain [this topic](question)
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?

@@ -1,0 +1,47 @@
+version: '3.1'
+intents:
+- ask_anime_genre
+- ask_character
+- ask_manga_adaptation
+- ask_plot
+- ask_recommendation
+- ask_studio
+- bot_challenge
+- ask_question
+- goodbye
+- greet
+entities:
+- anime_name
+- character_name
+- genre
+- studio
+- question
+actions:
+- utter_ask_genre
+- utter_greet
+- action_anime_query
+- action_answer
+responses:
+  utter_greet:
+  - text: Konnichiwa! Welcome to Zeno-ai! What anime are you curious about? 🎌
+  utter_answer:
+  - text: I'm Zeno-ai, your ultimate anime knowledge companion, powered by advanced neural networks!
+  utter_goodbye:
+  - text: Mata ne! Keep watching amazing anime! 👋
+  utter_iamabot:
+  - text: I'm Zeno-ai - your personal anime expert and knowledge hub!
+  utter_ask_genre:
+  - text: I can tell you about various anime genres like Shounen, Shoujo, Isekai, Slice of Life, Psychological, and more! Which interests you?
+  utter_ask_character:
+  - text: Tell me which anime you're asking about, and I can describe fascinating character details!
+  utter_ask_recommendation:
+  - text: I have tons of anime recommendations! Tell me your favorite genre or anime, and I'll suggest something perfect for you!
+  utter_ask_plot:
+  - text: Which anime would you like me to summarize? I can give you plot details without spoilers!
+  utter_ask_studio:
+  - text: I can tell you which anime studios produced your favorite series! Ask about any anime!
+  utter_ask_manga:
+  - text: Many anime are adapted from manga! Tell me which anime you're interested in, and I can share manga details!
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

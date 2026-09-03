@@ -1,0 +1,79 @@
+version: "3.1"
+
+stories:
+
+- story: happy path greeting
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_question
+  - action: action_answer
+
+- story: just ask question
+  steps:
+  - intent: ask_question
+  - action: action_answer
+
+- story: genre inquiry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_anime_genre
+  - action: action_anime_query
+
+- story: character inquiry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_character
+  - action: action_anime_query
+
+- story: recommendation request
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_recommendation
+  - action: action_anime_query
+
+- story: plot inquiry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_plot
+  - action: action_anime_query
+
+- story: studio inquiry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_studio
+  - action: action_anime_query
+
+- story: manga inquiry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_manga_adaptation
+  - action: action_anime_query
+
+- story: goodbye path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_anime_genre
+  - action: utter_ask_genre

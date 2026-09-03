@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "D:/Python Internship"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Python Internship",
+		"liveServer.settings.port": 5501
+	}
+}
