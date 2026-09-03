@@ -2,33 +2,36 @@
 
 Zeno-ai is an anime knowledge assistant with a browser-based chat interface and a Rasa conversational backend. Users can ask about anime genres, characters, recommendations, plots, studios, manga adaptations, and general questions.
 
+## Clone the Repository
+
+```powershell
+git clone https://github.com/VVSandeep-44/Rasa_AI_Chatbot.git
+cd Rasa_AI_Chatbot
+```
+
 ## Project Structure
 
 This workspace contains two parts:
 
 ```text
-Python Internship/
+Rasa_AI_Chatbot/
 ├── index.html       # Zeno-ai web interface
 ├── style.css        # Visual design and responsive layout
 ├── script .js       # Chat behavior and Rasa integration
-└── README.md
-
-internship/
-├── actions/         # Rasa custom actions
-├── data/            # NLU examples, stories, and rules
-├── models/          # Trained Rasa models
-├── config.yml       # NLU pipeline and policy configuration
-├── credentials.yml  # Channel credentials
-├── domain.yml       # Intents, entities, actions, and responses
-├── endpoints.yml    # Custom action server endpoint
-└── tests/           # Rasa conversation tests
+├── README.md
+├── .env.example     # Safe environment-variable template
+└── backend/
+	├── actions/     # Rasa custom actions
+	├── data/        # NLU examples, stories, and rules
+	├── tests/       # Rasa conversation tests
+	├── config.yml   # NLU pipeline and policy configuration
+	├── credentials.yml
+	├── domain.yml   # Intents, entities, actions, and responses
+	├── endpoints.yml
+	└── requirements.txt
 ```
 
-The Rasa backend is currently located at:
-
-```text
-C:\Users\dell\OneDrive\Desktop\internship
-```
+The virtual environment, cached Rasa files, and trained models are intentionally excluded by `.gitignore`. They are generated locally during setup.
 
 ## Features
 
@@ -54,7 +57,7 @@ C:\Users\dell\OneDrive\Desktop\internship
 Open PowerShell and create or activate an environment for the Rasa project:
 
 ```powershell
-cd "D:\Python Internship\backend"
+cd "Rasa_AI_Chatbot\backend"
 py -3.9 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
@@ -67,18 +70,16 @@ Train the assistant after changing NLU data, stories, rules, or the domain:
 rasa train
 ```
 
-Run the two backend services in separate PowerShell windows:
+Run the two backend services in separate PowerShell windows. Start both from the `backend` directory:
 
 ```powershell
 # Window 1: custom actions
-cd "D:\Python Internship\backend"
 .\.venv\Scripts\Activate.ps1
 rasa run actions --port 5055
 ```
 
 ```powershell
 # Window 2: Rasa REST API
-cd "D:\Python Internship\backend"
 .\.venv\Scripts\Activate.ps1
 rasa run --enable-api --cors "*" --port 5005
 ```
@@ -108,7 +109,7 @@ Use `.env.example` as a template, but keep the real key in your local environmen
 Serve the frontend directory with a local HTTP server:
 
 ```powershell
-cd "D:\Python Internship"
+cd "Rasa_AI_Chatbot"
 python -m http.server 8080
 ```
 
@@ -118,7 +119,7 @@ Open [http://localhost:8080](http://localhost:8080) in a browser. Opening `index
 
 1. The user opens the chat widget and submits a message.
 2. `script .js` sends the message to the Rasa REST webhook.
-3. Rasa classifies the message using the examples in `internship/data/nlu.yml`.
+3. Rasa classifies the message using the examples in `backend/data/nlu.yml`.
 4. Rasa selects a response or custom action using `stories.yml`, `rules.yml`, and `domain.yml`.
 5. `action_answer` can forward general questions to the configured external AI service.
 6. If the request fails, the frontend displays a local fallback response and marks the assistant as offline.
@@ -128,19 +129,19 @@ Open [http://localhost:8080](http://localhost:8080) in a browser. Opening `index
 - `index.html`: page structure, chat controls, quick prompts, and accessibility labels.
 - `style.css`: colors, layout, responsive behavior, animations, and background effects.
 - `script .js`: API requests, history persistence, fallback behavior, typing state, and speech input.
-- `internship/config.yml`: Rasa NLU pipeline and fallback classifier.
-- `internship/domain.yml`: supported intents, entities, actions, and utterances.
-- `internship/data/nlu.yml`: training examples for anime and general questions.
-- `internship/data/stories.yml`: multi-turn conversation paths.
-- `internship/data/rules.yml`: deterministic goodbye and bot-challenge responses.
-- `internship/actions/actions.py`: custom action implementation for AI-backed answers.
+- `backend/config.yml`: Rasa NLU pipeline and fallback classifier.
+- `backend/domain.yml`: supported intents, entities, actions, and utterances.
+- `backend/data/nlu.yml`: training examples for anime and general questions.
+- `backend/data/stories.yml`: multi-turn conversation paths.
+- `backend/data/rules.yml`: deterministic goodbye and bot-challenge responses.
+- `backend/actions/actions.py`: custom action implementation for AI-backed answers.
 
 ## Testing
 
 Run the Rasa story tests from the backend directory:
 
 ```powershell
-cd "D:\Python Internship\backend"
+cd "Rasa_AI_Chatbot\backend"
 .\.venv\Scripts\Activate.ps1
 rasa test
 ```
